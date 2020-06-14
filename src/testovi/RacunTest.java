@@ -6,22 +6,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import banka.Main;
 import banka.Racun;
+import banka.Validacija;
 
 class RacunTest {
 
 	
-	Racun obj;
+	Validacija obj;
 	Racun racun;
 	int brojRacunaKojiNePostoji;
 	int brojRacunaKojiPostoji;
 	
 	@BeforeEach
 	void setUp() {
-		obj = new Racun();
+		obj = new Validacija();
 		racun = new Racun();
 		racun.setBrojRacuna(1);
-		obj.pohranjeniRacuni.add(racun);
+		Main.pohranjeniRacuni.add(racun);
 		brojRacunaKojiNePostoji = 5;
 		brojRacunaKojiPostoji = 1;
 	}
