@@ -35,7 +35,7 @@ public class Main implements Serializable {
 
 					System.out.println("\nUnesite broj racuna");
 					int brojRacuna = unos.nextInt();
-					
+
 					System.out.println("\nUnesite svoje ime");
 					unos.nextLine();
 					String imeVlasnikaRacuna = unos.nextLine();
@@ -46,7 +46,7 @@ public class Main implements Serializable {
 					Racun racun = new Racun(brojRacuna, imeVlasnikaRacuna, iznosNaRacunu);
 
 					if (brojRacuna >= 0) {
-						if (val.postojiLiRacunSaIstimBrojem(brojRacuna) == false) {
+						if (val.postojiLiRacun(brojRacuna) == false) {
 							racun.validacija = true;
 						} else {
 							System.out.println(
@@ -84,7 +84,6 @@ public class Main implements Serializable {
 					System.out.println("\nUnesite iznos koji zelite prebaciti");
 					double iznosKojiSePrebacuje = unos.nextDouble();
 
-
 					if (val.jesuLiRacuniIsti(brojPrvogRacuna, brojDrugogRacuna) == true) {
 						System.out.println("Ne mozete vrsiti transfer novca sa jednog te istog racuna");
 					} else if (val.postojiLiRacun(brojPrvogRacuna) == true
@@ -107,7 +106,6 @@ public class Main implements Serializable {
 
 					System.out.println("\nUnesite broj racuna");
 					int brojRacuna = unos.nextInt();
-
 
 					if (val.postojiLiRacun(brojRacuna) == true) {
 

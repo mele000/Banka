@@ -12,22 +12,6 @@ public class Validacija implements Serializable {
 
 	// methods
 
-	public boolean postojiLiRacunSaIstimBrojem(int racun) {
-
-		for (int i = 0; i < Main.pohranjeniRacuni.size(); i++) {
-			if (Main.pohranjeniRacuni.get(i).getBrojRacuna() == racun) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public void postaviIznosNaRacunima(int brojPrvogRacuna, int brojDrugogRacuna, double iznosKojiSePrebacuje) {
-		vratiRacun(brojPrvogRacuna).setIznosNaPrvomRacunu(iznosKojiSePrebacuje);
-		vratiRacun(brojDrugogRacuna).setIznosNaDrugomRacunu(iznosKojiSePrebacuje);
-	}
-
 	public boolean jeLiMogucePrebaciti(int brojPrvog, int iznosKojiSePrebacuje) {
 
 		if (vratiRacun(brojPrvog).getIznosNaRacunu() < iznosKojiSePrebacuje) {
@@ -68,6 +52,11 @@ public class Validacija implements Serializable {
 
 	}
 
+	public void postaviIznosNaRacunima(int brojPrvogRacuna, int brojDrugogRacuna, double iznosKojiSePrebacuje) {
+		vratiRacun(brojPrvogRacuna).setIznosNaPrvomRacunu(iznosKojiSePrebacuje);
+		vratiRacun(brojDrugogRacuna).setIznosNaDrugomRacunu(iznosKojiSePrebacuje);
+	}
+
 	public void procitajSveIzBaze() throws IOException, ClassNotFoundException {
 
 		try {
@@ -87,8 +76,8 @@ public class Validacija implements Serializable {
 
 		}
 	}
-	
-	public void upisiSveUBazu() throws IOException  {
+
+	public void upisiSveUBazu() throws IOException {
 		FileOutputStream fo = new FileOutputStream("racuni.txt");
 		ObjectOutputStream output = new ObjectOutputStream(fo);
 
@@ -102,9 +91,9 @@ public class Validacija implements Serializable {
 			System.out.println(racun.toString());
 		}
 	}
-	
+
 	public void pokaziKorisnikuMenu() {
-		
+
 		System.out.println("Unesite" + "\n1 ako hocete kreirati racun," + "\n2 ako hocete prebaciti sredstva,"
 				+ "\n3 ako hocete pregledati racun," + "\nbilo koji drugi broj ako hocete zavrsiti program");
 
